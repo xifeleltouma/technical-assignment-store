@@ -231,7 +231,7 @@ export class Store implements IStore {
 
     for (let i = 0; i < keys.length - 1; i++) {
       const key = keys[i];
-      const current = pointer[key];
+      const current = unwrap(pointer[key]);
 
       if (current instanceof Store) {
         return current.write(keys.slice(i + 1).join(SEPARATOR), value);
